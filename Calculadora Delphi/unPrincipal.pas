@@ -19,11 +19,9 @@ type
     Label3: TLabel;
     txtResultado: TEdit;
     procedure btSomarClick(Sender: TObject);
-    procedure btSubtrairClick(Sender: TObject);
-    procedure btMultiplicarClick(Sender: TObject);
-    procedure btDividirClick(Sender: TObject);
   private
     { Private declarations }
+    function calcularResultado(num1, num2: Real; operacao: String): Real;
   public
     { Public declarations }
   end;
@@ -35,49 +33,34 @@ implementation
 
 {$R *.dfm}
 
-procedure TForm1.btDividirClick(Sender: TObject);
-  var
-   num1, num2 : Real;
-   resultado: Real;
-begin
-  num1 := StrToFloat(txtNum1.Text);
-  num2 := StrToFloat(txtNum2.Text);
-  resultado := num1 / num2;
-  txtResultado.Text := FloatToStr(resultado);
-end;
 
-procedure TForm1.btMultiplicarClick(Sender: TObject);
-  var
-   num1, num2, resultado: Real;
-begin
-  num1 := StrToFloat(txtNum1.Text);
-  num2 := StrToFloat(txtNum2.Text);
-  resultado := num1 * num2;
-  txtResultado.Text := FloatToStr(resultado);
-end;
+{ TForm1 }
+
 
 procedure TForm1.btSomarClick(Sender: TObject);
-var
-  // Bumeros: Integer = inteiros / Real = fracionado
-  // Boolean: True or False
-  // String: Textos
-  // Char: Caractere
-   num1, num2, resultado: Real;
 begin
-  num1 := StrToFloat(txtNum1.Text);
-  num2 := StrToFloat(txtNum2.Text);
-  resultado := num1 + num2;
-  txtResultado.Text := FloatToStr(resultado);
+  calcularResultado(StrToFloat(txtNum1.Text), (StrToFloat(txtNum1.Text))
 end;
 
-procedure TForm1.btSubtrairClick(Sender: TObject);
-  var
-   num1, num2, resultado: Real;
+function TForm1.calcularResultado(num1, num2: Real; operacao: String): Real;
+var
+  resultado: Real;
 begin
-  num1 := StrToFloat(txtNum1.Text);
-  num2 := StrToFloat(txtNum2.Text);
-  resultado := num1 - num2;
-  txtResultado.Text := FloatToStr(resultado);
+
+  if operacao = 'somar' then
+    resultado := num1 + num2
+
+  else if operacao = 'subtrair' then
+    resultado := num1 - num2
+
+  else if operacao = 'multiplicar' then
+    resultado := num1 * num2
+
+  else
+    resultado := num1 / num2;
+
+  Result := resultado;
+
 end;
 
 end.
