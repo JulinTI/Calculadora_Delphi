@@ -4,8 +4,8 @@ object Form1: TForm1
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Calculadora'
-  ClientHeight = 293
-  ClientWidth = 297
+  ClientHeight = 430
+  ClientWidth = 281
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,81 +15,102 @@ object Form1: TForm1
   Position = poScreenCenter
   TextHeight = 15
   object Label1: TLabel
-    Left = 40
+    Left = 24
     Top = 24
     Width = 53
     Height = 15
     Caption = 'Numero 1'
   end
   object Label2: TLabel
-    Left = 40
+    Left = 24
     Top = 88
     Width = 53
     Height = 15
     Caption = 'Numero 2'
   end
   object Label3: TLabel
-    Left = 40
+    Left = 24
     Top = 200
     Width = 52
     Height = 15
     Caption = 'Resultado'
   end
   object txtNum1: TEdit
-    Left = 40
+    Left = 24
     Top = 45
     Width = 225
     Height = 23
     TabOrder = 0
+    OnChange = txtNum1Change
   end
   object txtNum2: TEdit
-    Left = 40
+    Left = 24
     Top = 109
     Width = 225
     Height = 23
     TabOrder = 1
+    OnChange = txtNum1Change
   end
   object btSomar: TButton
-    Left = 40
+    Left = 24
     Top = 152
     Width = 37
     Height = 25
     Caption = '+'
+    Enabled = False
     TabOrder = 2
     OnClick = btSomarClick
   end
   object btSubtrair: TButton
-    Left = 96
+    Left = 80
     Top = 152
     Width = 41
     Height = 25
     Caption = '-'
+    Enabled = False
     TabOrder = 3
     OnClick = btSubtrairClick
   end
   object btMultiplicar: TButton
-    Left = 160
+    Left = 144
     Top = 152
     Width = 41
     Height = 25
     Caption = '*'
+    Enabled = False
     TabOrder = 4
     OnClick = btMultiplicarClick
   end
   object btDividir: TButton
-    Left = 224
+    Left = 208
     Top = 152
     Width = 41
     Height = 25
     Caption = '/'
+    Enabled = False
     TabOrder = 5
     OnClick = btDividirClick
   end
   object txtResultado: TEdit
-    Left = 40
+    Left = 24
     Top = 221
     Width = 225
     Height = 23
+    ReadOnly = True
     TabOrder = 6
+  end
+  object opcVisual: TRadioGroup
+    Left = 24
+    Top = 264
+    Width = 225
+    Height = 129
+    Caption = 'Alterar visual da calculadora'
+    ItemIndex = 1
+    Items.Strings = (
+      'Windows Classic'
+      'Glow'
+      'Aqua Light Slate')
+    TabOrder = 7
+    OnClick = opcVisualClick
   end
 end
